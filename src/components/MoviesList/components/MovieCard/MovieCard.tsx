@@ -17,7 +17,7 @@ export const MovieCard = ({ movie, onRemoveFavorite }: MovieCardProps) => {
   );
 
   return (
-    <div className="block">
+    <article className="block">
       <Link href={`/movie/${movie.imdbID}`} className="group cursor-pointer">
         <div
           className="
@@ -32,9 +32,9 @@ export const MovieCard = ({ movie, onRemoveFavorite }: MovieCardProps) => {
         >
           <FavoriteButton id={movie.imdbID} onRemove={onRemoveFavorite} />
           <Image
-            loading="eager"
+            loading="lazy"
             src={imgSrc}
-            alt={movie.Title}
+            alt={`Poster of ${movie.Title}`}
             className="object-cover"
             fill
             sizes="192px"
@@ -53,6 +53,6 @@ export const MovieCard = ({ movie, onRemoveFavorite }: MovieCardProps) => {
 
         <p className="text-sm text-[#ADADB8]">{movie.Year}</p>
       </div>
-    </div>
+    </article>
   );
 };

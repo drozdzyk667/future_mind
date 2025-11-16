@@ -9,6 +9,7 @@ export const ReturnButton = () => {
     <button
       onClick={() => router.back()}
       className="text-blue-400 hover:text-blue-300 mb-4 inline-block"
+      aria-label="Return to previous page"
     >
       ← Back
     </button>

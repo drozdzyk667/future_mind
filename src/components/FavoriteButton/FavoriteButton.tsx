@@ -29,6 +29,7 @@ export const FavoriteButton = ({ id, onRemove }: FavoriteButtonProps) => {
         transition-all duration-200 
         hover:bg-black/60 active:scale-90 cursor-pointer
       `}
+      aria-label={active ? "Remove from favorites" : "Add to favorites"}
     >
       <span
         className={`text-lg transition-colors duration-200 ${

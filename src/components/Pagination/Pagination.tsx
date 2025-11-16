@@ -33,7 +33,10 @@ export const Pagination = ({
   };
 
   return (
-    <div className="flex items-center gap-4 justify-center my-6">
+    <nav
+      aria-label="Movies pagination"
+      className="flex items-center gap-4 justify-center my-6"
+    >
       <button
         onClick={() => goToPage(currentPage - 1)}
         disabled={currentPage <= 1 || isPending}
@@ -53,6 +56,6 @@ export const Pagination = ({
       >
         Next
       </button>
-    </div>
+    </nav>
   );
 };

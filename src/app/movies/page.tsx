@@ -47,21 +47,21 @@ export default async function Movies({ searchParams }: Props) {
   const safePage = clampPageToTotal(currentPage, totalPages, params);
 
   return (
-    <>
-      <div className="flex justify-between items-center">
+    <main>
+      <header className="flex justify-between items-center">
         <div className="p-2">
           <span className="italic text-xs">
             Total results: {results.totalResults}
           </span>
         </div>
         <FavoritesLink />
-      </div>
+      </header>
 
       <MoviesList
         movies={uniqueSearch}
         currentPage={safePage}
         totalPages={totalPages}
       />
-    </>
+    </main>
   );
 }

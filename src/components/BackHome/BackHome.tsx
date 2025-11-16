@@ -5,6 +5,7 @@ export const BackHome = () => {
     <button
       className="m-6 p-3 rounded-lg cursor-pointer border-2 border-amber-500"
       onClick={() => window.location.replace("/")}
+      aria-label="Return to main page"
     >
       Back home
     </button>

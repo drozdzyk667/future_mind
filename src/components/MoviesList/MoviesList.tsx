@@ -38,7 +38,7 @@ export const MoviesList = ({
   };
 
   return (
-    <div className="mt-8">
+    <section className="mt-8">
       {isPending ? (
         <MoviesSkeleton />
       ) : (
@@ -61,6 +61,6 @@ export const MoviesList = ({
         totalPages={totalPages}
         onChangePage={handlePageChange}
       />
-    </div>
+    </section>
   );
 };
