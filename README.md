@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 Movies App — Next.js 16, React 19, OMDb API
 
-## Getting Started
+A modern movie search application built using **Next.js App Router**, **React 19**, and **OMDb API**.  
+The app supports movie searching, details view, pagination, and saving favorites in `localStorage`.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📌 Features
+
+### 🔍 Movie Search
+
+- Search by movie title
+- Optional filters: **year**, **type** (movie / series / episode)
+- Form validation with user-friendly error messages
+
+### 📄 Results & Pagination
+
+- Server-side fetching using App Router
+- Smart validation & clamping of page numbers
+- Smooth UI transitions using `useTransition` and custom `UIContext`
+- Skeleton loading indicators & disabled UI during transitions
+
+### 🎞️ Movie Details Page
+
+- Full movie details fetched from OMDb API
+- Back button to return to list
+- Favorite toggle available on detail view
+
+### ❤️ Favorites System
+
+- Favorites stored in `localStorage`
+- Global state management via `FavoritesProvider`
+- Favorites list with pagination
+- Auto-adjust page number when items are removed
+- Prevents duplicate favorites
+
+### 🧪 Unit Testing
+
+Implemented with:
+
+- **Jest**
+- **React Testing Library**
+- **JS-DOM environment**
+
+Includes tests for:
+
+- Validation utilities
+- Form validation
+- Error messages
+- Navigation helpers
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology     | Usage                                  |
+| -------------- | -------------------------------------- |
+| Next.js 16     | App Router, server components, routing |
+| React 19       | UI, transitions                        |
+| TypeScript     | Strong typing                          |
+| TailwindCSS v4 | Styling                                |
+| Jest + RTL     | Unit testing                           |
+| OMDb API       | Movie data                             |
+
+---
+
+## 🚀 Getting Started
+
+##### 1. Clone project
+
+```
+git clone https://github.com/drozdzyk667/future_mind
+cd future_mind
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##### 2. Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##### 3. OMDBI key
 
-## Learn More
+```
+create .env.local file in root, with
+OMDB_API_KEY=<your_api_omdb_key_here>
+```
 
-To learn more about Next.js, take a look at the following resources:
+##### 4. Run
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##### 5. Testing
 
-## Deploy on Vercel
+```
+pnpm run test
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├─ app/
+│ ├─ movies/
+│ ├─ movie/[id]/
+│ ├─ favorites/
+│ ├─ api/
+│ └─ ...
+│
+├─ components/
+│ ├─ MoviesList/
+│ ├─ MovieCard/
+│ ├─ FavoriteButton/
+│ └─ ReturnButton/
+│ └─ ...
+│
+├─ helpers/
+│ ├─ validators/
+│ ├─ hooks/
+│ └─ types/
+│
+├─ lib/
+│ ├─ omdb.ts
+│ ├─ FavoritesContext.tsx
+│ └─ UITransitionContext.tsx
+```
