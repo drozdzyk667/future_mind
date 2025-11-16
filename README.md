@@ -64,6 +64,10 @@ Includes tests for:
 
 ---
 
+### View on https://future-mind-jade.vercel.app
+
+#### or start locally
+
 ## 🚀 Getting Started
 
 ##### 1. Clone project
