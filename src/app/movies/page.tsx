@@ -13,6 +13,47 @@ type Props = {
   searchParams?: Promise<MovieSearchParams>;
 };
 
+export async function generateMetadata({ searchParams }: Props) {
+  const params = await searchParams;
+
+  const query = params?.query || "";
+  const page = params?.page || "1";
+  const type = params?.type || "";
+  const year = params?.year || "";
+
+  const title = query
+    ? `Search results for "${query}" – Page ${page}`
+    : "Search movies";
+
+  const description = query
+    ? `Browse movie search results for "${query}"${
+        year ? ` from year ${year}` : ""
+      }${type ? ` (${type})` : ""}.`
+    : "Search for movies, series, and episodes.";
+
+  const search = new URLSearchParams(params || {}).toString();
+  const canonical = `/movies${search ? `?${search}` : ""}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonical,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
+}
+
 export default async function Movies({ searchParams }: Props) {
   const params = await searchParams;
   const { query, page = "1", type, year } = params || {};
