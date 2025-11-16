@@ -3,6 +3,8 @@
 A modern movie search application built using **Next.js App Router**, **React 19**, and **OMDb API**.  
 The app supports movie searching, details view, pagination, and saving favorites in `localStorage`.
 
+### View on https://future-mind-jade.vercel.app
+
 ---
 
 ## 📌 Features
@@ -63,10 +65,6 @@ Includes tests for:
 | OMDb API       | Movie data                             |
 
 ---
-
-### View on https://future-mind-jade.vercel.app
-
-#### or start locally
 
 ## 🚀 Getting Started
 
